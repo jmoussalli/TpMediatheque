@@ -6,7 +6,8 @@ Content-Type: application/json
   "adherent": {
     "id": 2,
     "prenom": "Marie",
-    "nom": "Golotte"
+    "nom": "Golotte",
+    "dateFinAdhesion": "31/12/2024"
   },
   "document": {
     "id": 1,
@@ -23,7 +24,8 @@ Content-Type: application/json
   "adherent": {
     "id": 1,
     "prenom": "Jean",
-    "nom": "Bonneau"
+    "nom": "Bonneau",
+    "dateFinAdhesion": "31/12/2023"
   },
   "document": {
     "id": 2,

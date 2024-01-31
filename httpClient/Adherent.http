@@ -4,7 +4,8 @@ Content-Type: application/json
 
 {
   "prenom": "Jean",
-  "nom": "Bonneau"
+  "nom": "Bonneau",
+  "dateFinAdhesion": "2023-12-31"
 }
 
 ### Send POST request with json body
@@ -13,7 +14,8 @@ Content-Type: application/json
 
 {
   "prenom": "Marie",
-  "nom": "Golotte"
+  "nom": "Golotte",
+  "dateFinAdhesion": "2024-12-31"
 }
 
 ### GET request with a header
