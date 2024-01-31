@@ -4,10 +4,12 @@ Content-Type: application/json
 
 {
   "adherent": {
+    "id": 2,
     "prenom": "Marie",
     "nom": "Golotte"
   },
   "document": {
+    "id": 1,
     "nom": "A la recherche du temps perdu",
     "description": "L'oeuvre de Marcel Proust"
   }
@@ -19,10 +21,12 @@ Content-Type: application/json
 
 {
   "adherent": {
+    "id": 1,
     "prenom": "Jean",
     "nom": "Bonneau"
   },
   "document": {
+    "id": 2,
     "nom": "La grande chasse au requin",
     "description": "L'oeuvre de Hunter S. Thompson"
   }
@@ -33,5 +37,5 @@ GET http://localhost:8080/api/emprunts
 Accept: application/json
 
 ### GET request with a header
-GET http://localhost:8080/api/emprunts/2
+GET http://localhost:8080/api/emprunts/4
 Accept: application/json
