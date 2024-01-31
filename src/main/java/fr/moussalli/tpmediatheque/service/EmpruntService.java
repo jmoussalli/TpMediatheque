@@ -38,4 +38,8 @@ public class EmpruntService {
         empruntRepository.save(emprunt);
     }
 
+    public Boolean adherentADejaEmprunteLeMaximum(Long adherent_id) {
+        return empruntRepository.countAllByAdherent_Id(adherent_id) > 2;
+    }
+
 }

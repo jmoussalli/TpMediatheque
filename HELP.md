@@ -1,4 +1,3 @@
-
 # TP Mediathèque
 
 Créer un projet SpringBoot avec JPA et Spring Web
@@ -6,10 +5,11 @@ Créer un projet SpringBoot avec JPA et Spring Web
 1. On a besoin de 3 tables : **adherents**, **documents**, **emprunts**
 
 2. On a besoin d’une classe Service qui va manipuler la base de données
- 
-3. On a besoin d’une classe qui va contenir les règles métier liées au fonctionnement de la médiathèque (et qu’on pourra tester avec des Tests Unitaires si nécessaire)
-Ajout 
-**Créer une API :**
+
+3. On a besoin d’une classe qui va contenir les règles métier liées au fonctionnement de la médiathèque (et qu’on pourra
+   tester avec des Tests Unitaires si nécessaire)
+   Ajout
+   **Créer une API :**
 
 * GET /adherents
 * POST /adherents
@@ -17,12 +17,12 @@ Ajout
 * POST /documents
 * GET /emprunts
 * POST /emprunts
- 
+
 **Règles métier :**
 
-_* Un adhérent ne peut pas emprunter plus de 3 documents_
-_* Un adhérent ne peut pas emprunter si son adhesion est périmée_
-_* Un document ne peut être emprunté en même temps par plusieurs adhérents_
+* Un adhérent ne peut pas emprunter plus de 3 documents
+* Un adhérent ne peut pas emprunter si son adhesion est périmée
+* Un document ne peut être emprunté en même temps par plusieurs adhérents
 
 **Aide pour les associations JPA:**
 

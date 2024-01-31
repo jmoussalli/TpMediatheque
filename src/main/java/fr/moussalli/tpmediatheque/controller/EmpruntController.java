@@ -29,7 +29,11 @@ public class EmpruntController {
             return ResponseEntity
                     .badRequest()
                     .body("les informations adhérent et document emprunté sont obligatoires");
-        else {
+        else if (empruntService.adherentADejaEmprunteLeMaximum(emprunt.getAdherent().getId())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("l'adhérent a déjàemprunté le maximum de documents autorisés");
+        } else {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(empruntService.add(emprunt));
         }

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
 
+    Integer countAllByAdherent_Id(Long adherent_id);
+
 }
