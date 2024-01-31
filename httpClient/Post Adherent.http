@@ -1,0 +1,25 @@
+### Send POST request with json body
+POST http://localhost:8080/api/adherents
+Content-Type: application/json
+
+{
+  "prenom": "Jean",
+  "nom": "Bonneau"
+}
+
+### Send POST request with json body
+POST http://localhost:8080/api/adherents
+Content-Type: application/json
+
+{
+  "prenom": "Marie",
+  "nom": "Golotte"
+}
+
+### GET request with a header
+GET http://localhost:8080/api/adherents
+Accept: application/json
+
+### GET request with a header
+GET http://localhost:8080/api/adherents/2
+Accept: application/json

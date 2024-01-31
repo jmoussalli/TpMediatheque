@@ -1,11 +1,10 @@
 package fr.moussalli.tpmediatheque.repository;
 
-import fr.moussalli.tpmediatheque.domain.Adherent;
 import fr.moussalli.tpmediatheque.domain.Document;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DocumentRepository extends JpaRepository<Document, Integer> {
+public interface DocumentRepository extends JpaRepository<Document, Long> {
 
 }
