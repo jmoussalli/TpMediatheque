@@ -1,10 +1,13 @@
 package fr.moussalli.tpmediatheque.service;
 
+import fr.moussalli.tpmediatheque.domain.Adherent;
 import fr.moussalli.tpmediatheque.domain.Emprunt;
+import fr.moussalli.tpmediatheque.repository.AdherentRepository;
 import fr.moussalli.tpmediatheque.repository.EmpruntRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +16,9 @@ public class EmpruntService {
 
     @Autowired
     private EmpruntRepository empruntRepository;
+
+    @Autowired
+    private AdherentRepository adherentRepository;
 
     public EmpruntService(EmpruntRepository empruntRepository) {
         this.empruntRepository = empruntRepository;
@@ -40,6 +46,17 @@ public class EmpruntService {
 
     public Boolean adherentADejaEmprunteLeMaximum(Long adherent_id) {
         return empruntRepository.countAllByAdherent_Id(adherent_id) > 2;
+    }
+
+    public Boolean dateAdhesionAdherentDepassee(Long adherent_id) {
+        Optional<Adherent> opt = adherentRepository.findById(adherent_id);
+        if (opt.isEmpty()) {
+            System.out.println("Adhérent non trouvé");
+            return false;
+        } else {
+            Adherent a = opt.get();
+            return a.getDateFinAdhesion().isBefore(LocalDate.now());
+        }
     }
 
 }

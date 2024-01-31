@@ -33,6 +33,11 @@ public class EmpruntController {
             return ResponseEntity
                     .badRequest()
                     .body("l'adhérent a déjà emprunté le maximum de documents autorisés");
+        }
+        if (empruntService.dateAdhesionAdherentDepassee(emprunt.getAdherent().getId())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("l'adhésion de l'adhérent est périmée ou adhérent non trouvé");
         } else {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(empruntService.add(emprunt));
