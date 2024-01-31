@@ -8,7 +8,7 @@ Créer un projet SpringBoot avec JPA et Spring Web
 2. On a besoin d’une classe Service qui va manipuler la base de données
  
 3. On a besoin d’une classe qui va contenir les règles métier liées au fonctionnement de la médiathèque (et qu’on pourra tester avec des Tests Unitaires si nécessaire)
- 
+Ajout 
 **Créer une API :**
 
 * GET /adherents
