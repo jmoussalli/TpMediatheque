@@ -1,0 +1,25 @@
+### Send POST request with json body
+POST http://localhost:8080/api/documents
+Content-Type: application/json
+
+{
+  "nom": "A la recherche du temps perdu",
+  "description": "L'oeuvre de Marcel Proust"
+}
+
+### Send POST request with json body
+POST http://localhost:8080/api/documents
+Content-Type: application/json
+
+{
+  "nom": "La grande chasse au requin",
+  "description": "L'oeuvre de Hunter S. Thompson"
+}
+
+### GET request with a header
+GET http://localhost:8080/api/documents
+Accept: application/json
+
+### GET request with a header
+GET http://localhost:8080/api/documents/2
+Accept: application/json
