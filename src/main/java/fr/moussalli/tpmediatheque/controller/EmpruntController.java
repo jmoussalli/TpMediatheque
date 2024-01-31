@@ -32,7 +32,7 @@ public class EmpruntController {
         else if (empruntService.adherentADejaEmprunteLeMaximum(emprunt.getAdherent().getId())) {
             return ResponseEntity
                     .badRequest()
-                    .body("l'adhérent a déjàemprunté le maximum de documents autorisés");
+                    .body("l'adhérent a déjà emprunté le maximum de documents autorisés");
         } else {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(empruntService.add(emprunt));
