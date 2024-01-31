@@ -48,6 +48,10 @@ public class EmpruntService {
         return empruntRepository.countAllByAdherent_Id(adherent_id) > 2;
     }
 
+    public Boolean dejaEmprunte(Long document_id, Long adherent_id) {
+        return empruntRepository.countDistinctAdherentByDocumentId(document_id, adherent_id) > 0;
+    }
+
     public Boolean dateAdhesionAdherentDepassee(Long adherent_id) {
         Optional<Adherent> opt = adherentRepository.findById(adherent_id);
         if (opt.isEmpty()) {

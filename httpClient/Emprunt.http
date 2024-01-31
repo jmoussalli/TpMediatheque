@@ -7,7 +7,7 @@ Content-Type: application/json
     "id": 2,
     "prenom": "Marie",
     "nom": "Golotte",
-    "dateFinAdhesion": "31/12/2024"
+    "dateFinAdhesion": "2024-12-31"
   },
   "document": {
     "id": 1,
@@ -25,12 +25,30 @@ Content-Type: application/json
     "id": 1,
     "prenom": "Jean",
     "nom": "Bonneau",
-    "dateFinAdhesion": "31/12/2023"
+    "dateFinAdhesion": "2024-12-31"
   },
   "document": {
     "id": 2,
     "nom": "La grande chasse au requin",
     "description": "L'oeuvre de Hunter S. Thompson"
+  }
+}
+
+### Send POST request with json body
+POST http://localhost:8080/api/emprunts
+Content-Type: application/json
+
+{
+  "adherent": {
+    "id": 1,
+    "prenom": "Jean",
+    "nom": "Bonneau",
+    "dateFinAdhesion": "2024-12-31"
+  },
+  "document": {
+    "id": 1,
+    "nom": "A la recherche du temps perdu",
+    "description": "L'oeuvre de Marcel Proust"
   }
 }
 
