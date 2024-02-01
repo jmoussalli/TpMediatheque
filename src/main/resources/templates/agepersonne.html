@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Personnes</title>
+</head>
+<body>
+
+    <h1>Ton age</h1>
+
+    <p th:if="${ personne.age } > 17">Vous etes majeur</p>
+    <p th:if="${ personne.age } < 18">Vous etes mineur</p>
+
+</body>
+</html>
