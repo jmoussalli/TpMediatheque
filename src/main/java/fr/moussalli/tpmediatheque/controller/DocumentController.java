@@ -2,62 +2,60 @@ package fr.moussalli.tpmediatheque.controller;
 
 import fr.moussalli.tpmediatheque.domain.Document;
 import fr.moussalli.tpmediatheque.service.DocumentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-@RestController
+@Controller
 @RequestMapping("api")
 public class DocumentController {
 
-    @Autowired
-    private DocumentService documentService;
+    private final DocumentService documentService;
 
-    @GetMapping("documents")
-    public List<Document> getDocuments() {
-        return documentService.getAll();
+    public DocumentController(DocumentService documentService) {
+        this.documentService = documentService;
     }
 
-    // POST /documents
-    @PostMapping("documents")
-    public ResponseEntity<?> addDocument(@RequestBody Document document) {
-        if (document.getNom() != null && document.getNom().isBlank())
-            return ResponseEntity
-                    .badRequest()
-                    .body("le nom du document est obligatoire");
-        else {
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(documentService.add(document));
+    @RequestMapping("/documents")
+    public String getDocuments(Model model) {
+        List<Document> sortedDocuments = documentService.getAll().stream()
+                .sorted(Comparator.comparing(Document::getNom))
+                .collect(Collectors.toList());
+        model.addAttribute("documents", sortedDocuments);
+
+        return "documents";
+    }
+
+    @GetMapping("/documents/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("document", new Document());
+        return "document-form";
+    }
+
+    @PostMapping("/documents/save")
+    public String saveDocument(@ModelAttribute("document") Document document) {
+        documentService.add(document);
+        return "redirect:/api/documents/add";
+    }
+
+    @GetMapping("/documents/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model) {
+        Optional<Document> opt = documentService.findById(id);
+        if (opt.isPresent()) {
+            Document document = opt.get();
+            model.addAttribute("document", document);
         }
+        return "document-form";
     }
 
-    // GET /documents/4
-    @GetMapping("documents/{id}")
-    public ResponseEntity getById(@PathVariable("id") Long id) {
-        Optional<Document> optional = documentService.findById(id);
-        if (optional.isEmpty())
-            return ResponseEntity.notFound().build();
-        else {
-            return ResponseEntity.ok(optional.get());
-        }
-    }
-
-    // DELETE /documents/4
-    @DeleteMapping("documents/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    @GetMapping("/documents/delete/{id}")
+    public String deleteDocument(@PathVariable("id") Long id) {
         documentService.delete(id);
+        return "redirect:/api/documents";
     }
-
-    // PUT /documents/4
-    @PutMapping("documents/{id}")
-    public void update(@RequestBody Document document
-            , @PathVariable("id") Integer id) {
-        documentService.update(document);
-    }
-
-
 }

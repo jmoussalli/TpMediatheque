@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Personnes</title>
 </head>
 <body>
 
-    <h1>Personnes</h1>
+<h1>Personnes</h1>
 
 
-    <form method="POST" action="personnes">
-        <label>Prénom:</label><input type="text" name="prenom">
-        <label>Nom:</label><input type="text" name="nom">
-        <input type="submit" value="Envoyer">
-    </form>
+<form action="/api/personnes" method="POST">
+    <label>Prénom:</label><input name="prenom" type="text">
+    <label>Nom:</label><input name="nom" type="text">
+    <input type="submit" value="Envoyer">
+</form>
 
 </body>
 </html>

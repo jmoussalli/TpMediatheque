@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{fragments/header::head}"></th:block>
+
+<body>
+
+<!--<th:block th:replace="~{fragments/header::header}"></th:block>-->
+
+<div class="container">
+    <h5 class="p-3 rounded-2 bg-dark text-light">Liste des Documents</h5>
+    <table class="table rounded-2 table-striped">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>
+                <button class="btn btn-success" th:onclick="'window.location.href=\'/api/documents/add\''"
+                        type="button">ADD
+                </button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="document : ${documents}">
+            <td th:text="${document.nom}">titre</td>
+            <td th:text="${document.description}">resume</td>
+            <td>
+                <div>
+                    <button class="btn btn-warning"
+                            th:onclick="'window.location.href=\'/api/documents/edit/' + ${document.id} + '\''"
+                            type="button">Update
+                    </button>
+                    <button class="btn btn-danger"
+                            th:onclick="'window.location.href=\'/api/documents/delete/' + ${document.id} + '\''"
+                            type="button">Delete
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<th:block th:replace="~{fragments/footer::site-footer}"></th:block>
+
+</body>
+</html>

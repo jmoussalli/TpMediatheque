@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<footer class="footer bg-dark" th:fragment="site-footer">
+    <div class="container text-center">
+            <span class="text-light"
+                  th:text="'(c) Jérôme Moussalli 2024 :: '+ ${#dates.format(#calendars.createNow(), 'dd MMMM yyyy HH:mm')}"></span>
+    </div>
+</footer>
+</body>
+</html>

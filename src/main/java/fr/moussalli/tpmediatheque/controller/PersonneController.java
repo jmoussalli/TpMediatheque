@@ -5,11 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("api")
 public class PersonneController {
 
     @GetMapping("hello")
@@ -18,7 +20,7 @@ public class PersonneController {
         String prenom = "Jean-Christophe";
         model.addAttribute("prenom", prenom);
 
-        return "hello.html";
+        return "/hello";
     }
 
     @GetMapping("personnes")
@@ -31,7 +33,7 @@ public class PersonneController {
 
         model.addAttribute("listePersonnes", personnes);
 
-        return "personnes"; // personnes.html
+        return "/personnes"; // personnes.html
     }
 
     @GetMapping("agepersonne")
@@ -41,7 +43,7 @@ public class PersonneController {
         model.addAttribute("personne",
                 new Personne("Marie", "Dupond", 17));
 
-        return "agepersonne.html";
+        return "/agepersonne";
     }
 
 
@@ -49,7 +51,7 @@ public class PersonneController {
     @GetMapping("personne-form")
     public String getForm() {
 
-        return "formulaire.html";
+        return "/formulaire";
     }
 
     @PostMapping("personnes")
